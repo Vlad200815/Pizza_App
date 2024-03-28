@@ -64,6 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     myUser = myUser.copyWith(
                       email: emailController.text,
                       name: nameController.text,
+                      isAdmin: false,
                     );
 
                     // myUser.email = emailController.text;

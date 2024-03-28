@@ -5,19 +5,23 @@ class MyUser extends Equatable {
   final String name;
   final String email;
   final String userId;
+  final bool isAdmin;
 
   const MyUser({
     required this.name,
     required this.email,
     required this.userId,
+    required this.isAdmin,
   });
 
   MyUser copyWith({
     String? name,
     String? email,
     String? userId,
+    bool? isAdmin,
   }) {
     return MyUser(
+      isAdmin: isAdmin ?? this.isAdmin,
       email: email ?? this.email,
       name: name ?? this.name,
       userId: userId ?? this.email,
@@ -25,6 +29,7 @@ class MyUser extends Equatable {
   }
 
   static const empty = MyUser(
+    isAdmin: false,
     name: "",
     email: "",
     userId: "",
@@ -35,6 +40,7 @@ class MyUser extends Equatable {
       name: name,
       userId: userId,
       email: email,
+      isAdmin: isAdmin,
     );
   }
 
@@ -43,9 +49,10 @@ class MyUser extends Equatable {
       name: entity.name,
       email: entity.email,
       userId: entity.userId,
+      isAdmin: entity.isAdmin,
     );
   }
 
   @override
-  List<Object?> get props => [name, email, userId];
+  List<Object?> get props => [name, email, userId, isAdmin];
 }
