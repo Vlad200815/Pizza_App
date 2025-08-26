@@ -16,8 +16,8 @@ class MyAppView extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.light(
-          background: Colors.grey.shade100,
-          onBackground: Colors.black,
+          surface: Colors.grey.shade100,
+          onSurface: Colors.black,
           primary: Colors.blue,
           onPrimary: Colors.white,
         ),

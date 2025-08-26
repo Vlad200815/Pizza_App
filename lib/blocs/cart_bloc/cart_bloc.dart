@@ -55,5 +55,17 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         debugPrint(e.toString());
       }
     });
+
+    on<DeleteAllPizzaEvent>((event, emit) async {
+      emit(CartProgressState());
+      try {
+        await _pizzaCartRepo.deleteAllPizzas();
+        List<Pizza> pizzas = await _pizzaCartRepo.getAddedPizzas();
+        emit(CartSuccessState(pizzas));
+      } catch (e) {
+        emit(CartFailureState());
+        debugPrint(e.toString());
+      }
+    });
   }
 }

@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,20 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<CartBloc>().add(GetCartEvent());
     });
-
-    //   WidgetsBinding.instance.addPostFrameCallback((_) {
-    //     FocusScope.of(context).addListener(() {
-    //       if (FocusScope.of(context).isFirstFocus) {
-    //         context.read<CartBloc>().add(GetCartEvent());
-    //       }
-    //     });
-    //   });
-    // }
-
-    // @override
-    // void dispose() {
-    //   super.dispose();
-    // }
   }
 
   @override
@@ -86,10 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) {
                     if (state is CartSuccessState) {
-                      //   int result = 0;
-                      //   for (var i = 0; i < state.cartPizzas.length; i++) {
-                      //     result = result + state.cartPizzas[i].itemCount;
-                      //   }
                       return Text(
                         "${state.cartPizzas.length}",
                         // state.cartPizzas.length
@@ -157,15 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body:
-          //BlocListener<CartBloc, CartState>(
-          //   listener: (context, state) {
-          //     if (state is CartSuccessState) {
-          //       context.read<CartBloc>().add(GetCartEvent());
-          //     }
-          //   },
-          //   child:
-          LiquidPullToRefresh(
+      body: LiquidPullToRefresh(
         height: 300,
         animSpeedFactor: 1,
         onRefresh: () async {
@@ -216,33 +189,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            /////////////////////////////////
                             Image.network(
                               state.pizzas[i].picture,
-                              /////////////////////////////////////
-                              // loadingBuilder: (BuildContext context,
-                              //     Widget child,
-                              //     ImageChunkEvent? loadingProgress) {
-                              //   if (!mounted) return child;
-                              //   if (loadingProgress == null) {
-                              //     return child;
-                              //   } else {
-                              //     return Center(
-                              //       child: CircularProgressIndicator(
-                              //         value:
-                              //             loadingProgress.expectedTotalBytes !=
-                              //                     null
-                              //                 ? loadingProgress
-                              //                         .cumulativeBytesLoaded /
-                              //                     loadingProgress
-                              //                         .expectedTotalBytes!
-                              //                 : null,
-                              //       ),
-                              //     );
-                              //  }
-                              // },
                             ),
-
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 12.0),

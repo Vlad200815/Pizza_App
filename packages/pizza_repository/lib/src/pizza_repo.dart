@@ -35,4 +35,6 @@ abstract class PizzaRepo {
     String wish,
     bool isRecall,
   );
+
+  Future<void> deleteAllPizzas();
 }

@@ -57,3 +57,5 @@ class DeleteCartPizzasEvent extends CartEvent {
   @override
   List<Object> get props => [pizzaId];
 }
+
+class DeleteAllPizzaEvent extends CartEvent {}

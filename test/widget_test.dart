@@ -8,8 +8,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:just/auth/app.dart';
-import 'package:just/auth/firebase_options.dart';
+import 'package:just/app.dart';
+import 'package:just/firebase_options.dart';
 import 'package:user_repository/user_repository.dart';
 
 void main() async {

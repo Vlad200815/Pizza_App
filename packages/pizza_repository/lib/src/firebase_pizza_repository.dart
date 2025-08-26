@@ -120,6 +120,11 @@ class FirebasePizzaRepo implements PizzaRepo {
   }
 
   @override
+  Future<void> deleteAllPizzas() async {
+    await pizzaCartCollection.doc().delete();
+  }
+
+  @override
   Future<void> updateItemCount(String field, pizzaId, var newFieldValue) async {
     await pizzaCartCollection.doc(pizzaId).update({field: newFieldValue});
   }
